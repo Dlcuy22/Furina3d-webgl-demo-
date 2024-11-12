@@ -57,6 +57,7 @@ node server.js
 - **Stats.js** - Performance monitoring
 
 ## 📦 Project Structure
+```bash
 furina-3d-viewer/
 ├── public/
 │ ├── index.html # Main HTML file
@@ -65,7 +66,7 @@ furina-3d-viewer/
 │ └── assets/ # 3D models, textures, audio
 ├── server.js # Express server
 └── package.json # Project dependencies
-
+```
 
 ## 🎮 Controls
 
