@@ -336,42 +336,42 @@ try {
     document.querySelector('.error-text').textContent = 'Failed to initialize viewer: ' + error.message;
 }
 
-// Initialize audio with caching
-const audioCache = new AudioCache();
-let bgMusic;
+// // Initialize audio with caching
+// const audioCache = new AudioCache();
+// let bgMusic;
 
-async function initAudio() {
-    try {
-        bgMusic = await audioCache.loadAudio('audio/banananana.mp3');
-        setupAudioControls();
-    } catch (error) {
-        console.error('Failed to load audio:', error);
-    }
-}
+// async function initAudio() {
+//     try {
+//         bgMusic = await audioCache.loadAudio('audio/banananana.mp3');
+//         setupAudioControls();
+//     } catch (error) {
+//         console.error('Failed to load audio:', error);
+//     }
+// }
 
-function setupAudioControls() {
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const playPauseIcon = playPauseBtn.querySelector('i');
+// function setupAudioControls() {
+//     const playPauseBtn = document.getElementById('playPauseBtn');
+//     const playPauseIcon = playPauseBtn.querySelector('i');
 
-    playPauseBtn.addEventListener('click', () => {
-        if (bgMusic.paused) {
-            bgMusic.play().catch(e => console.log("Audio play failed:", e));
-            playPauseIcon.classList.remove('fa-play');
-            playPauseIcon.classList.add('fa-pause');
-        } else {
-            bgMusic.pause();
-            playPauseIcon.classList.remove('fa-pause');
-            playPauseIcon.classList.add('fa-play');
-        }
-    });
-}
+//     playPauseBtn.addEventListener('click', () => {
+//         if (bgMusic.paused) {
+//             bgMusic.play().catch(e => console.log("Audio play failed:", e));
+//             playPauseIcon.classList.remove('fa-play');
+//             playPauseIcon.classList.add('fa-pause');
+//         } else {
+//             bgMusic.pause();
+//             playPauseIcon.classList.remove('fa-pause');
+//             playPauseIcon.classList.add('fa-play');
+//         }
+//     });
+// }
 
-// Initialize audio system
-initAudio();
+// // Initialize audio system
+// initAudio();
 
-// Setup one-time click listener for audio
-document.addEventListener('click', () => {
-    if (bgMusic) {
-        bgMusic.play().catch(e => console.log("Audio play failed:", e));
-    }
-}, { once: true });
+// // Setup one-time click listener for audio
+// document.addEventListener('click', () => {
+//     if (bgMusic) {
+//         bgMusic.play().catch(e => console.log("Audio play failed:", e));
+//     }
+// }, { once: true });
