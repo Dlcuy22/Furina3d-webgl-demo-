@@ -1,0 +1,280 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: all 0.3s ease; /* Added transition for smoother effects */
+        }
+
+        body {
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a3d 0%, #2c3e50 100%);
+            color: #ffffff;
+            animation: fadeIn 1s ease; /* Added fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(8px); /* Increased blur for a more pronounced effect */
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: #fff;
+            transition: opacity 0.5s ease; /* Smooth transition for loading screen */
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5); /* Enhanced shadow effect */
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88 0%, #00ffcc 100%);
+            border-radius: 10px;
+            transition: width 0.4s ease; /* Smoother width transition */
+        }
+
+        #error-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #ff3333 0%, #ff5555 100%);
+            color: white;
+            padding: 30px; /* Increased padding for better spacing */
+            border-radius: 15px;
+            display: none;
+            z-index: 1001;
+            box-shadow: 0 10px 20px rgba(255, 51, 51, 0.5); /* Enhanced shadow */
+            backdrop-filter: blur(15px); /* Increased blur for error message */
+            animation: slideIn 0.5s ease; /* Added slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from { transform: translate(-50%, -60%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+
+        .controls-info {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.85); /* Slightly darker background */
+            padding: 20px 25px; /* Increased padding */
+            border-radius: 12px;
+            font-size: 14px;
+            backdrop-filter: blur(12px); /* Increased blur for controls info */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Enhanced border visibility */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+            transform: translateY(0);
+            transition: transform 0.3s ease, background 0.3s ease; /* Added background transition */
+        }
+
+        .controls-info:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 136, 0.1); /* Change background on hover */
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.95); /* Slightly more opaque */
+            padding: 25px; /* Increased padding */
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1002;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+            backdrop-filter: blur(12px); /* Increased blur for header */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Enhanced border visibility */
+        }
+
+        header h1 {
+            font-size: 2.5em; /* Increased font size */
+            margin-bottom: 20px; /* Increased margin */
+            font-weight: 700; /* Bolder font weight */
+            letter-spacing: 1.5px; /* Increased letter spacing */
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* Enhanced text shadow */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Increased gap between items */
+        }
+
+        nav ul li {
+            display: inline;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: 600; /* Increased font weight */
+            padding: 10px 20px; /* Increased padding */
+            border-radius: 10px; /* More rounded corners */
+            transition: all 0.3s ease;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.5); /* Enhanced text shadow */
+        }
+
+        nav ul li a:hover {
+            background: rgba(0, 255, 136, 0.2); /* More pronounced hover effect */
+            text-decoration: none;
+            transform: translateY(-3px); /* Slightly increased hover lift */
+        }
+
+        nav ul li a i {
+            margin-right: 10px; /* Increased margin */
+            font-size: 1em; /* Increased icon size */
+        }
+
+        .music-player {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin: 15px auto;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .music-info {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .song-title {
+            display: block;
+            font-size: 1.2em;
+            color: #00ff88;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .artist-name {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .player-btn {
+            background: rgba(0, 255, 136, 0.1);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: #00ff88;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .player-btn:hover {
+            background: rgba(0, 255, 136, 0.2);
+            transform: scale(1.1);
+        }
+
+        .play-pause {
+            width: 55px;
+            height: 55px;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .track-progress {
+            flex: 1;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-track {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00ffcc);
+            border-radius: 5px;
+            width: 0%;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .volume-slider {
+            flex: 1;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #00ff88;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            background: #00ffcc;
+        }
+
+        .current-time, .total-time {
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+            min-width: 45px;
+        }
+        
