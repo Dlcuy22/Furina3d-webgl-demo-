@@ -36,7 +36,7 @@
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/furina-3d-viewer.git
+git clone https://github.com/Dlcuy22/Furina3d-webgl-demo-
 ```
 2. install dependencies
 ```bash
